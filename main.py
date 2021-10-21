@@ -1,7 +1,12 @@
 import yfinance as yf
 
 
-msft = yf.Ticker("MSFT")
+ticker = "TSLA"
+msft = yf.Ticker(ticker)
 
 # get stock info
-print(msft.history(period="max"))
+ticker_yahoo = yf.Ticker(ticker)
+data = ticker_yahoo.history()
+last_quote = (data.tail(1)['Close'].iloc[0])
+print(data.tail(1)['Close'])
+print(ticker,last_quote)
